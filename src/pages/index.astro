@@ -1,0 +1,338 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import PricingCard from '../components/PricingCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import CTASection from '../components/CTASection.astro';
+import { highlightedFeatures } from '../data/features';
+import { pricingTiers } from '../data/pricing';
+import { testimonials } from '../data/testimonials';
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <HeroSection />
+
+  <!-- Features Preview -->
+  <section class="section" aria-labelledby="features-heading">
+    <div class="container">
+      <div class="section-intro">
+        <p class="section-label">
+          <span aria-hidden="true">✦</span> Features
+        </p>
+        <h2 id="features-heading">
+          Built for the way<br />modern finance works
+        </h2>
+        <p>
+          From AI-powered bookkeeping to real-time cash flow — every tool your team needs,
+          unified in one intelligent platform.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        {highlightedFeatures.map((f) => (
+          <FeatureCard {...f} />
+        ))}
+      </div>
+
+      <div class="features-more-link">
+        <a href="/features" class="btn btn-ghost">
+          View all 9 features
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Highlight Band -->
+  <section class="ai-band" aria-labelledby="ai-heading">
+    <div class="ai-band-glow" aria-hidden="true"></div>
+    <div class="container ai-band-inner">
+      <div class="ai-band-content">
+        <p class="section-label">
+          <span aria-hidden="true">◎</span> AI at the core
+        </p>
+        <h2 id="ai-heading">
+          Your books,<br />on autopilot.
+        </h2>
+        <p>
+          Accountium's AI engine reads your transaction history, learns your chart of accounts,
+          and handles categorization, reconciliation, and anomaly detection — without you lifting a finger.
+        </p>
+        <a href="/features" class="btn btn-primary" style="align-self:flex-start;">
+          Explore AI features
+        </a>
+      </div>
+
+      <div class="ai-band-visual" aria-hidden="true">
+        <div class="ai-card glass-card">
+          <div class="ai-card-header">
+            <span class="ai-dot"></span>
+            AI is processing your transactions
+          </div>
+          <div class="ai-rows">
+            {[
+              { label: 'AWS Invoice #4421', cat: 'Cloud Infrastructure', amount: '-$842.00', color: '#4f8ef7' },
+              { label: 'Stripe Payout',     cat: 'Revenue',              amount: '+$12,480', color: '#22d3a0' },
+              { label: 'Figma Annual',      cat: 'Software & Tools',     amount: '-$576.00', color: '#4f8ef7' },
+              { label: 'Google Ads',        cat: 'Marketing',            amount: '-$2,100',  color: '#4f8ef7' },
+            ].map((row) => (
+              <div class="ai-row">
+                <div class="ai-row-left">
+                  <div class="ai-row-dot" style={`background:${row.color}`}></div>
+                  <div>
+                    <p class="ai-row-label">{row.label}</p>
+                    <p class="ai-row-cat">{row.cat}</p>
+                  </div>
+                </div>
+                <span class="ai-row-amount" style={`color:${row.color}`}>{row.amount}</span>
+              </div>
+            ))}
+          </div>
+          <div class="ai-accuracy">
+            <span>AI accuracy</span>
+            <span class="ai-accuracy-pct">98.7%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div class="section-intro">
+        <p class="section-label">
+          <span aria-hidden="true">◈</span> Testimonials
+        </p>
+        <h2 id="testimonials-heading">Loved by finance teams</h2>
+      </div>
+      <div class="grid-3">
+        {testimonials.map((t) => (
+          <TestimonialCard {...t} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Preview -->
+  <section class="section" aria-labelledby="pricing-heading">
+    <div class="container">
+      <div class="section-intro">
+        <p class="section-label">
+          <span aria-hidden="true">⬡</span> Pricing
+        </p>
+        <h2 id="pricing-heading">Simple, transparent pricing</h2>
+        <p>All plans include a 14-day free trial. No credit card required.</p>
+      </div>
+      <div class="pricing-grid">
+        {pricingTiers.map((tier) => (
+          <PricingCard {...tier} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection />
+</BaseLayout>
+
+<style>
+  .section-intro {
+    text-align: center;
+    margin-bottom: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .section-intro h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .section-intro p {
+    max-width: 54ch;
+    text-align: center;
+    margin: 0;
+  }
+
+  .features-more-link {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-10);
+  }
+
+  /* AI Band */
+  .ai-band {
+    position: relative;
+    background: var(--color-surface);
+    border-block: 1px solid var(--color-border);
+    padding-block: var(--space-24);
+    overflow: hidden;
+  }
+
+  .ai-band-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(34,211,160,0.07) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .ai-band-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .ai-band-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .ai-band-content h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .ai-band-content p {
+    max-width: 48ch;
+    margin: 0;
+  }
+
+  .ai-band-visual {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .ai-card {
+    width: 100%;
+    max-width: 420px;
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .ai-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .ai-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-green);
+    box-shadow: 0 0 8px var(--color-green);
+    animation: pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+  }
+
+  .ai-rows {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .ai-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) var(--space-4);
+    background: rgba(255,255,255,0.03);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+  }
+
+  .ai-row-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .ai-row-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .ai-row-label {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-primary);
+    max-width: none;
+    margin: 0;
+  }
+
+  .ai-row-cat {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    max-width: none;
+    margin: 0;
+  }
+
+  .ai-row-amount {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .ai-accuracy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  .ai-accuracy-pct {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-green);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    align-items: start;
+    padding-top: var(--space-6);
+  }
+
+  @media (max-width: 1024px) {
+    .ai-band-inner { grid-template-columns: 1fr; }
+    .ai-band-visual { justify-content: center; }
+  }
+
+  @media (max-width: 900px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      max-width: 440px;
+      margin-inline: auto;
+    }
+  }
+</style>
