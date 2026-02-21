@@ -1,10 +1,11 @@
 export const site = {
   name: 'Accountium',
-  tagline: 'AI-powered accounting, built for modern teams.',
+  tagline: 'Numbers Made Easy — Business Made Brilliant.',
   description:
-    'Accountium automates your bookkeeping, invoicing, and tax prep with AI — so you can focus on growing your business, not managing spreadsheets.',
+    'Our comprehensive accounting software is a fully integrated suite of applications designed to streamline accounting, payroll, and inventory management. Accountium offers businesses greater data visibility and enhanced operational control.',
   url: 'https://accountium.ca',
   ogImage: '/images/og-image.png',
   twitterHandle: '@accountium',
   email: 'hello@accountium.ca',
+  appUrl: 'https://www.myaccountium.ca/Account/SignIn',
 };

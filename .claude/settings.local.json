@@ -3,7 +3,10 @@
     "allow": [
       "Bash(npm run build:*)",
       "Bash(npm install:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:accountium.ca)",
+      "WebFetch(domain:iceberg.leonfurze.com)",
+      "WebFetch(domain:web.archive.org)"
     ]
   }
 }

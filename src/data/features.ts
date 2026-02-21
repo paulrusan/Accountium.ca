@@ -7,61 +7,41 @@ export interface Feature {
 
 export const features: Feature[] = [
   {
-    icon: '✦',
-    title: 'AI Bookkeeping',
-    description:
-      'Automatically categorize transactions, reconcile accounts, and close the books — with AI that learns your business over time.',
-    tag: 'AI',
-  },
-  {
     icon: '◈',
-    title: 'Real-Time Dashboard',
+    title: 'Invoicing',
     description:
-      'Get a live view of cash flow, revenue, expenses, and runway. No waiting for month-end — know your numbers today.',
+      'Create and send professional invoices in minutes. Integrated with Stripe so your clients can pay online instantly — no manual follow-ups needed.',
+    tag: 'Stripe',
   },
   {
     icon: '⬡',
-    title: 'Smart Invoicing',
+    title: 'Inventory Management',
     description:
-      'Create, send, and track invoices in seconds. AI predicts payment likelihood and sends gentle reminders automatically.',
-    tag: 'AI',
+      'Automate stock tracking with real-time records of inventory levels. Eliminate counting errors and get alerts before you run out.',
   },
   {
     icon: '⊞',
-    title: 'Tax Ready, Always',
+    title: 'Financial Statements',
     description:
-      'Accountium keeps your books audit-ready year-round and generates tax packages with a single click at filing time.',
-  },
-  {
-    icon: '⟳',
-    title: 'Bank Sync & Matching',
-    description:
-      'Connect all your bank accounts and credit cards. Transactions sync instantly and are matched to bills and invoices.',
+      'Generate balance sheets, income statements, and cash flow reports at any time — a complete and accurate picture of your financial standing.',
   },
   {
     icon: '◎',
-    title: 'Expense Intelligence',
+    title: 'Online Payroll',
     description:
-      'Snap a receipt and let AI extract the details. Policies are enforced automatically, and reimbursements are processed fast.',
-    tag: 'AI',
+      'Hassle-free payroll that adapts to businesses of any size. Accurate, compliant processing every pay cycle — no accountant required.',
   },
   {
     icon: '⬒',
-    title: 'Multi-Entity Support',
+    title: 'Property Management',
     description:
-      'Manage multiple companies or subsidiaries from one workspace. Consolidated reporting across entities in a click.',
+      'The ultimate platform for landlords and property managers. Track rent, expenses, and maintenance — fully integrated with your books.',
   },
   {
-    icon: '⊙',
-    title: 'Audit Trail',
+    icon: '✦',
+    title: 'Small Business Accounting',
     description:
-      'Every entry, change, and approval is logged with a full history. Your accountant and auditors will love you.',
-  },
-  {
-    icon: '⟁',
-    title: 'Integrations',
-    description:
-      'Connects with Stripe, Shopify, Payroll providers, CRMs, and 200+ apps via native integrations and Zapier.',
+      'A comprehensive accounting suite built around the unique needs of small businesses — organized, accessible, and always up to date.',
   },
 ];
 

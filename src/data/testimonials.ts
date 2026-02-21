@@ -9,23 +9,23 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      'Accountium cut our month-end close from 5 days to half a day. The AI categorization is uncanny — it gets it right almost every time.',
-    author: 'Sarah Chen',
-    role: 'CFO',
-    company: 'Meridian Labs',
+      "I cannot even begin to express how much easier Accountium makes my life. For me it's the best Accounting Software platform around. Easy to use, with all the features required to run my business.",
+    author: 'Ashley Martin',
+    role: 'Owner',
+    company: 'Creative Designs',
   },
   {
     quote:
-      'I used to dread tax season. Now I just click "Generate Tax Package" and send it to my accountant. It literally changed my relationship with money.',
-    author: 'Marcus Obi',
-    role: 'Founder',
-    company: 'Obi Creative Studio',
+      "We've tested a lot of other Apps, but held onto Accountium because of the reliability and the features the software is offering. Our construction business is running smoothly and we see financials in real time.",
+    author: 'John Heinrich',
+    role: 'Owner',
+    company: 'Creek Contracting',
   },
   {
     quote:
-      'We manage 12 entities across 3 countries. Accountium is the first tool that actually handles that complexity without feeling like enterprise bloatware.',
-    author: 'Priya Nair',
-    role: 'Head of Finance',
-    company: 'Nexvera Group',
+      'Awesome Software! I am able to send Invoices and get paid Online. Nice and clean design with intuitive features plus a great set of reports. Their Smart Banking module really makes it easier for having clean books.',
+    author: 'Bill Jackson',
+    role: 'Marketing Specialist',
+    company: '',
   },
 ];

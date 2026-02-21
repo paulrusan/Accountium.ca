@@ -1,338 +1,697 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroSection from '../components/HeroSection.astro';
-import FeatureCard from '../components/FeatureCard.astro';
-import PricingCard from '../components/PricingCard.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
-import CTASection from '../components/CTASection.astro';
-import { highlightedFeatures } from '../data/features';
-import { pricingTiers } from '../data/pricing';
 import { testimonials } from '../data/testimonials';
+import { site } from '../data/site';
+
+const pillars = [
+  {
+    icon: '⊞',
+    title: 'Excellent Operation',
+    desc: 'Our comprehensive accounting software is a fully integrated suite of applications designed to streamline accounting, payroll, and inventory management. Accountium offers businesses greater data visibility and enhanced operational control.',
+  },
+  {
+    icon: '◈',
+    title: 'Flawless Design',
+    desc: "Accountium leads the industry with an elegant design and functionality. Work more effectively by getting a complete, real-time view of your business's financial performance.",
+  },
+  {
+    icon: '✦',
+    title: 'AI Tools',
+    desc: 'With industry-leading tools, Accountium is the first choice for managing your business. Save time and free up resources to better serve customers, identify new opportunities and outpace the competition.',
+  },
+];
+
+const features = [
+  {
+    num: '01',
+    title: 'AI Accounting',
+    sub: 'World\'s first AI-powered accounting',
+    desc: 'Experience the future of Accounting Software with our revolutionary world\'s first artificial intelligence system. With the ability to control the system with simple commands from your email, managing your finances has never been easier.',
+    href: '/features',
+    color: 'var(--color-accent)',
+  },
+  {
+    num: '02',
+    title: 'Streamline Sales',
+    sub: 'Invoicing & online payments',
+    desc: 'Send professional invoices to clients and start accepting online payments. Automatically record transactions in your books.',
+    href: '/features',
+    color: 'var(--color-green)',
+  },
+  {
+    num: '03',
+    title: 'Smart Banking',
+    sub: 'Bank feeds & transaction categorization',
+    desc: 'Connect your bank to Accountium and set up bank feeds. Transactions flow securely straight into Accountium each business day. Monitor transactions and categorize them instantly.',
+    href: '/features',
+    color: 'var(--color-accent)',
+  },
+  {
+    num: '04',
+    title: 'Business On‑the‑go',
+    sub: 'Access anywhere, on any device',
+    desc: 'Keep an eye on your finances anywhere anytime on your mobile. Track bank balances, invoices, bills and more. Your data is synced across all devices all the time.',
+    href: '/features',
+    color: 'var(--color-amber)',
+  },
+  {
+    num: '05',
+    title: 'Payroll',
+    sub: 'CRA remittance · Paystubs · T4',
+    desc: 'Our Payroll application is feature-rich and meets all of your payroll processing needs, while processing your payroll efficiently and accurately every time.',
+    href: '/features',
+    color: 'var(--color-green)',
+  },
+];
 ---
 
 <BaseLayout>
-  <!-- Hero -->
-  <HeroSection />
 
-  <!-- Features Preview -->
-  <section class="section" aria-labelledby="features-heading">
-    <div class="container">
-      <div class="section-intro">
-        <p class="section-label">
-          <span aria-hidden="true">✦</span> Features
-        </p>
-        <h2 id="features-heading">
-          Built for the way<br />modern finance works
-        </h2>
-        <p>
-          From AI-powered bookkeeping to real-time cash flow — every tool your team needs,
-          unified in one intelligent platform.
-        </p>
-      </div>
+  <!-- ════════════════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════════════ -->
+  <section class="hero" aria-label="Hero">
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
-      <div class="grid-3">
-        {highlightedFeatures.map((f) => (
-          <FeatureCard {...f} />
-        ))}
-      </div>
-
-      <div class="features-more-link">
-        <a href="/features" class="btn btn-ghost">
-          View all 9 features
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">AI Accounting Software</p>
+      <h1 class="hero-headline">
+        Numbers Made Easy.<br />Business Made Brilliant.
+      </h1>
+      <p class="hero-sub">
+        A fully integrated suite designed to streamline accounting,
+        payroll, and inventory management — giving your business
+        greater data visibility and enhanced operational control.
+      </p>
+      <div class="hero-actions">
+        <a href={site.appUrl} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          Try for free
         </a>
+        <a href="/features" class="btn btn-ghost">Explore features</a>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <span>Scroll to explore</span>
+      <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+        <path d="M8 1v14M2 10l6 7 6-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       DIVIDER 01 — Why Accountium
+  ════════════════════════════════════════════════════════ -->
+  <div class="section-divider reveal">
+    <div class="divider-line"></div>
+    <div class="divider-label"><span class="divider-num">01</span><span>Why Accountium</span></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════
+       PILLARS
+  ════════════════════════════════════════════════════════ -->
+  <section class="pillars-section" aria-labelledby="pillars-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 id="pillars-heading">
+          Cloud accounting software built for<br />
+          Business, Accountants and Bookkeepers.
+        </h2>
+      </div>
+      <div class="pillars-grid">
+        {pillars.map((p, i) => (
+          <div class="pillar-card reveal glass-card" style={`--delay:${i * 100}ms`}>
+            <span class="pillar-icon" aria-hidden="true">{p.icon}</span>
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- AI Highlight Band -->
-  <section class="ai-band" aria-labelledby="ai-heading">
-    <div class="ai-band-glow" aria-hidden="true"></div>
-    <div class="container ai-band-inner">
-      <div class="ai-band-content">
-        <p class="section-label">
-          <span aria-hidden="true">◎</span> AI at the core
-        </p>
-        <h2 id="ai-heading">
-          Your books,<br />on autopilot.
-        </h2>
-        <p>
-          Accountium's AI engine reads your transaction history, learns your chart of accounts,
-          and handles categorization, reconciliation, and anomaly detection — without you lifting a finger.
-        </p>
-        <a href="/features" class="btn btn-primary" style="align-self:flex-start;">
-          Explore AI features
-        </a>
-      </div>
+  <!-- ════════════════════════════════════════════════════════
+       DIVIDER 02 — Features
+  ════════════════════════════════════════════════════════ -->
+  <div class="section-divider reveal">
+    <div class="divider-line"></div>
+    <div class="divider-label"><span class="divider-num">02</span><span>Features</span></div>
+    <div class="divider-line"></div>
+  </div>
 
-      <div class="ai-band-visual" aria-hidden="true">
-        <div class="ai-card glass-card">
-          <div class="ai-card-header">
-            <span class="ai-dot"></span>
-            AI is processing your transactions
+  <!-- ════════════════════════════════════════════════════════
+       FEATURE SECTIONS (alternating)
+  ════════════════════════════════════════════════════════ -->
+  <section class="features-section" aria-label="Product features">
+    <div class="container">
+      {features.map((f, i) => (
+        <div class:list={['feature-row reveal', { 'feature-row--flip': i % 2 !== 0 }]}>
+          <!-- Text -->
+          <div class="feature-text">
+            <p class="feature-num" style={`color:${f.color}`}>{f.num}</p>
+            <h2 class="feature-title">{f.title}</h2>
+            <p class="feature-sub">{f.sub}</p>
+            <p class="feature-desc">{f.desc}</p>
+            <a href={f.href} class="btn btn-ghost feature-cta">
+              Explore now
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
           </div>
-          <div class="ai-rows">
-            {[
-              { label: 'AWS Invoice #4421', cat: 'Cloud Infrastructure', amount: '-$842.00', color: '#4f8ef7' },
-              { label: 'Stripe Payout',     cat: 'Revenue',              amount: '+$12,480', color: '#22d3a0' },
-              { label: 'Figma Annual',      cat: 'Software & Tools',     amount: '-$576.00', color: '#4f8ef7' },
-              { label: 'Google Ads',        cat: 'Marketing',            amount: '-$2,100',  color: '#4f8ef7' },
-            ].map((row) => (
-              <div class="ai-row">
-                <div class="ai-row-left">
-                  <div class="ai-row-dot" style={`background:${row.color}`}></div>
-                  <div>
-                    <p class="ai-row-label">{row.label}</p>
-                    <p class="ai-row-cat">{row.cat}</p>
-                  </div>
-                </div>
-                <span class="ai-row-amount" style={`color:${row.color}`}>{row.amount}</span>
+          <!-- Visual placeholder -->
+          <div class="feature-visual" aria-hidden="true">
+            <div class="feature-visual-inner glass-card">
+              <div class="visual-dot-grid">
+                {Array.from({ length: 12 }).map(() => (
+                  <div class="visual-dot" style={`background:${f.color}`}></div>
+                ))}
               </div>
-            ))}
-          </div>
-          <div class="ai-accuracy">
-            <span>AI accuracy</span>
-            <span class="ai-accuracy-pct">98.7%</span>
+              <p class="visual-label" style={`color:${f.color}`}>{f.title}</p>
+            </div>
           </div>
         </div>
-      </div>
+      ))}
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="section" aria-labelledby="testimonials-heading">
+  <!-- ════════════════════════════════════════════════════════
+       DIVIDER 03 — Testimonials
+  ════════════════════════════════════════════════════════ -->
+  <div class="section-divider reveal">
+    <div class="divider-line"></div>
+    <div class="divider-label"><span class="divider-num">03</span><span>What customers say</span></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════
+       TESTIMONIALS
+  ════════════════════════════════════════════════════════ -->
+  <section class="testimonials-section" aria-labelledby="testimonials-heading">
     <div class="container">
-      <div class="section-intro">
-        <p class="section-label">
-          <span aria-hidden="true">◈</span> Testimonials
-        </p>
-        <h2 id="testimonials-heading">Loved by finance teams</h2>
+      <div class="section-header reveal">
+        <h2 id="testimonials-heading">Trusted by businesses<br />across Canada.</h2>
       </div>
-      <div class="grid-3">
-        {testimonials.map((t) => (
-          <TestimonialCard {...t} />
+      <div class="testimonials-grid">
+        {testimonials.map((t, i) => (
+          <div class="reveal" style={`--delay:${i * 100}ms`}>
+            <TestimonialCard {...t} />
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Pricing Preview -->
-  <section class="section" aria-labelledby="pricing-heading">
-    <div class="container">
-      <div class="section-intro">
-        <p class="section-label">
-          <span aria-hidden="true">⬡</span> Pricing
-        </p>
-        <h2 id="pricing-heading">Simple, transparent pricing</h2>
-        <p>All plans include a 14-day free trial. No credit card required.</p>
-      </div>
-      <div class="pricing-grid">
-        {pricingTiers.map((tier) => (
-          <PricingCard {...tier} />
-        ))}
+  <!-- ════════════════════════════════════════════════════════
+       DIVIDER 04 — Get started
+  ════════════════════════════════════════════════════════ -->
+  <div class="section-divider reveal">
+    <div class="divider-line"></div>
+    <div class="divider-label"><span class="divider-num">04</span><span>Get started</span></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════
+       BOTTOM CTA
+  ════════════════════════════════════════════════════════ -->
+  <section class="bottom-cta reveal" aria-labelledby="cta-heading">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <div class="container bottom-cta-inner">
+      <h2 id="cta-heading">Online accounting software</h2>
+      <p>
+        Join thousands of Canadian businesses who trust Accountium
+        to keep their books accurate and their finances clear.
+      </p>
+      <div class="cta-actions">
+        <a href={site.appUrl} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          Try for free
+        </a>
+        <a href="/contact" class="btn btn-ghost">Contact us</a>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <CTASection />
 </BaseLayout>
 
+<!-- ─── Particle Canvas ─────────────────────────────────────── -->
+<script>
+(function () {
+  const canvas = document.getElementById('particle-canvas') as HTMLCanvasElement;
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d')!;
+  const COLOR = '56, 189, 248';
+  const DIST  = 150;
+  const N     = window.innerWidth < 768 ? 28 : 55;
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  type P = { x: number; y: number; vx: number; vy: number; r: number };
+  const pts: P[] = Array.from({ length: N }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.38,
+    vy: (Math.random() - 0.5) * 0.38,
+    r: Math.random() * 1.4 + 0.5,
+  }));
+
+  let raf: number;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < pts.length; i++) {
+      const p = pts[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${COLOR},0.75)`;
+      ctx.fill();
+      for (let j = i + 1; j < pts.length; j++) {
+        const q = pts[j];
+        const d = Math.hypot(p.x - q.x, p.y - q.y);
+        if (d < DIST) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = `rgba(${COLOR},${(1 - d / DIST) * 0.28})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+    raf = requestAnimationFrame(draw);
+  }
+  const io = new IntersectionObserver(
+    ([e]) => { e.isIntersecting ? draw() : cancelAnimationFrame(raf); },
+    { threshold: 0 }
+  );
+  io.observe(canvas.closest('section')!);
+})();
+</script>
+
+<!-- ─── Scroll Reveal ───────────────────────────────────────── -->
+<script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const els = document.querySelectorAll<HTMLElement>('.reveal');
+  els.forEach((el) => {
+    const d = el.style.getPropertyValue('--delay') || '0ms';
+    el.style.cssText += `opacity:0;transform:translateY(22px);transition:opacity .55s ease ${d},transform .55s ease ${d}`;
+  });
+  const io = new IntersectionObserver(
+    (entries) => entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const el = e.target as HTMLElement;
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      io.unobserve(el);
+    }),
+    { threshold: 0.1 }
+  );
+  els.forEach((el) => io.observe(el));
+})();
+</script>
+
 <style>
-  .section-intro {
+  /* ── Hero ─────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  #particle-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.55;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    gap: var(--space-6);
+    padding: calc(var(--header-height) + var(--space-12)) var(--space-6) var(--space-16);
+    max-width: 820px;
+    margin-inline: auto;
+    animation: hero-in 1s var(--ease-out-expo) both;
+  }
+
+  @keyframes hero-in {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  .hero-eyebrow {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0;
+    max-width: none;
+  }
+
+  .hero-headline {
+    font-size: var(--text-hero);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+  }
+
+  .hero-sub {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 52ch;
+    margin: 0;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--space-2);
+  }
+
+  .scroll-cue {
+    position: absolute;
+    bottom: var(--space-8);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    animation: cue-bob 2.2s ease-in-out infinite;
+  }
+
+  @keyframes cue-bob {
+    0%, 100% { opacity: 0.35; transform: translateX(-50%) translateY(0); }
+    50%       { opacity: 0.7;  transform: translateX(-50%) translateY(5px); }
+  }
+
+  /* ── Dividers ─────────────────────────────────────────── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-12) var(--space-6);
+    max-width: var(--container-max);
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+  }
+
+  .divider-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  .divider-num {
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  /* ── Section Header ───────────────────────────────────── */
+  .section-header {
+    text-align: center;
+    margin-inline: auto;
     margin-bottom: var(--space-12);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--space-4);
+    max-width: 680px;
   }
 
-  .section-intro h2 {
+  .section-header h2 {
     font-size: var(--text-3xl);
     font-weight: 700;
     letter-spacing: -0.03em;
+    line-height: 1.15;
   }
 
-  .section-intro p {
-    max-width: 54ch;
-    text-align: center;
+  .section-header p { margin: 0; text-align: center; }
+
+  /* ── Pillars ──────────────────────────────────────────── */
+  .pillars-section { padding-bottom: var(--space-8); }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .pillar-card {
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    transition: transform var(--duration-base) var(--ease-out-expo);
+  }
+
+  .pillar-card:hover { transform: translateY(-4px); }
+
+  .pillar-icon {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: var(--space-2);
+  }
+
+  .pillar-card h3 {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .pillar-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    max-width: none;
     margin: 0;
   }
 
-  .features-more-link {
-    display: flex;
-    justify-content: center;
-    margin-top: var(--space-10);
-  }
+  /* ── Features ─────────────────────────────────────────── */
+  .features-section { padding-bottom: var(--space-8); }
 
-  /* AI Band */
-  .ai-band {
-    position: relative;
-    background: var(--color-surface);
-    border-block: 1px solid var(--color-border);
-    padding-block: var(--space-24);
-    overflow: hidden;
-  }
-
-  .ai-band-glow {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(34,211,160,0.07) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .ai-band-inner {
+  .feature-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-16);
     align-items: center;
+    padding-block: var(--space-16);
+    border-bottom: 1px solid var(--color-border);
   }
 
-  .ai-band-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-  }
+  .feature-row:last-child { border-bottom: none; }
 
-  .ai-band-content h2 {
-    font-size: var(--text-3xl);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-  }
+  .feature-row--flip .feature-text { order: 2; }
+  .feature-row--flip .feature-visual { order: 1; }
 
-  .ai-band-content p {
-    max-width: 48ch;
-    margin: 0;
-  }
-
-  .ai-band-visual {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .ai-card {
-    width: 100%;
-    max-width: 420px;
-    padding: var(--space-6);
-    border-radius: var(--radius-lg);
+  .feature-text {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
   }
 
-  .ai-card-header {
-    display: flex;
+  .feature-num {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    max-width: none;
+    margin: 0;
+  }
+
+  .feature-title {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .feature-sub {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    max-width: none;
+    margin: 0;
+  }
+
+  .feature-desc {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 48ch;
+    margin: 0;
+  }
+
+  .feature-cta {
+    align-self: flex-start;
+    margin-top: var(--space-2);
+    display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    font-size: var(--text-xs);
-    font-weight: 600;
-    color: var(--color-text-muted);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    transition: gap var(--duration-base) var(--ease-out-expo);
   }
 
-  .ai-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--color-green);
-    box-shadow: 0 0 8px var(--color-green);
-    animation: pulse 2s ease-in-out infinite;
-    flex-shrink: 0;
+  .feature-cta:hover { gap: var(--space-3); }
+
+  /* Feature visual placeholder */
+  .feature-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0.4; }
-  }
-
-  .ai-rows {
+  .feature-visual-inner {
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 4/3;
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
-  }
-
-  .ai-row {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: var(--space-3) var(--space-4);
-    background: rgba(255,255,255,0.03);
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--color-border);
+    justify-content: center;
+    gap: var(--space-6);
   }
 
-  .ai-row-left {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
+  .visual-dot-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
   }
 
-  .ai-row-dot {
-    width: 8px;
-    height: 8px;
+  .visual-dot {
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    flex-shrink: 0;
+    opacity: 0.4;
   }
 
-  .ai-row-label {
-    font-size: var(--text-sm);
-    font-weight: 500;
-    color: var(--color-text-primary);
-    max-width: none;
-    margin: 0;
-  }
+  .visual-dot:nth-child(odd)  { opacity: 0.7; }
+  .visual-dot:nth-child(3n)   { opacity: 0.2; }
 
-  .ai-row-cat {
-    font-size: var(--text-xs);
-    color: var(--color-text-muted);
-    max-width: none;
-    margin: 0;
-  }
-
-  .ai-row-amount {
+  .visual-label {
     font-size: var(--text-sm);
     font-weight: 600;
-    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    max-width: none;
+    margin: 0;
   }
 
-  .ai-accuracy {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: var(--space-3);
-    border-top: 1px solid var(--color-border);
-    font-size: var(--text-xs);
-    color: var(--color-text-muted);
-  }
+  /* ── Testimonials ─────────────────────────────────────── */
+  .testimonials-section { padding-bottom: var(--space-8); }
 
-  .ai-accuracy-pct {
-    font-size: var(--text-sm);
-    font-weight: 700;
-    color: var(--color-green);
-  }
-
-  .pricing-grid {
+  .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-6);
-    align-items: start;
-    padding-top: var(--space-6);
   }
 
-  @media (max-width: 1024px) {
-    .ai-band-inner { grid-template-columns: 1fr; }
-    .ai-band-visual { justify-content: center; }
+  /* ── Bottom CTA ───────────────────────────────────────── */
+  .bottom-cta {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--space-24);
+    text-align: center;
   }
 
+  .cta-glow {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 55% 80% at 30% 50%, rgba(56,189,248,0.1) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 70% 50%, rgba(14,213,169,0.07) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .bottom-cta-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .bottom-cta-inner h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .bottom-cta-inner > p {
+    max-width: 50ch;
+    text-align: center;
+    margin: 0;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--space-2);
+  }
+
+  /* ── Responsive ───────────────────────────────────────── */
   @media (max-width: 900px) {
-    .pricing-grid {
-      grid-template-columns: 1fr;
-      max-width: 440px;
-      margin-inline: auto;
-    }
+    .pillars-grid       { grid-template-columns: 1fr; }
+    .testimonials-grid  { grid-template-columns: 1fr; }
+    .feature-row        { grid-template-columns: 1fr; gap: var(--space-8); }
+    .feature-row--flip .feature-text  { order: 0; }
+    .feature-row--flip .feature-visual { order: 0; }
+    .feature-desc       { max-width: none; }
+    .feature-visual-inner { max-width: 100%; }
+  }
+
+  @media (max-width: 600px) {
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-actions .btn { justify-content: center; }
+    .cta-actions  { flex-direction: column; align-items: stretch; }
+    .cta-actions .btn { justify-content: center; }
   }
 </style>

@@ -1,44 +1,52 @@
 /* ============================================================
    Accountium — Global Styles
-   Design tokens + resets + utility classes
+   Design tokens matching iceberg.leonfurze.com aesthetic
    ============================================================ */
 
-/* ── Google Fonts ─────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* ── Google Fonts — Inter ──────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
 
-/* ── Design Tokens ────────────────────────────────────────── */
+/* ── Design Tokens ─────────────────────────────────────────── */
 :root {
-  /* Colors */
-  --color-bg:              #09090f;
-  --color-surface:         #101018;
-  --color-surface-raised:  #16161f;
-  --color-border:          rgba(255, 255, 255, 0.07);
-  --color-border-strong:   rgba(255, 255, 255, 0.14);
+  /* ── Colors (Iceberg light palette) ────────────────────── */
+  --color-bg:              #f0f7f9;
+  --color-bg-secondary:    #e6f0f3;
+  --color-surface:         #ffffff;
+  --color-surface-raised:  #ffffff;
+  --color-border:          rgba(0, 0, 0, 0.07);
+  --color-border-strong:   rgba(8, 145, 178, 0.3);
 
-  --color-text-primary:    #eeeeff;
-  --color-text-secondary:  rgba(238, 238, 255, 0.6);
-  --color-text-muted:      rgba(238, 238, 255, 0.35);
+  --color-text-primary:    #1a2e3a;
+  --color-text-secondary:  #3d5a6a;
+  --color-text-muted:      #5a7a8a;
 
-  --color-accent:          #4f8ef7;
-  --color-accent-dim:      rgba(79, 142, 247, 0.15);
-  --color-accent-hover:    #6ba3ff;
+  --color-accent:          #0891b2;
+  --color-accent-dim:      rgba(8, 145, 178, 0.08);
+  --color-accent-hover:    #0369a1;
 
-  --color-green:           #22d3a0;
-  --color-green-dim:       rgba(34, 211, 160, 0.12);
+  --color-green:           #0d9488;
+  --color-green-dim:       rgba(13, 148, 136, 0.08);
 
-  /* Typography */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --color-amber:           #d97706;
+  --color-amber-dim:       rgba(217, 119, 6, 0.08);
 
-  --text-xs:    0.75rem;
-  --text-sm:    0.875rem;
-  --text-base:  1rem;
-  --text-lg:    1.125rem;
-  --text-xl:    clamp(1.25rem, 2vw, 1.5rem);
-  --text-2xl:   clamp(1.5rem, 3vw, 2rem);
-  --text-3xl:   clamp(2rem, 4vw, 3rem);
-  --text-hero:  clamp(2.75rem, 6vw, 5rem);
+  --color-purple:          #7c3aed;
+  --color-purple-dim:      rgba(124, 58, 237, 0.08);
 
-  /* Spacing (base-4 scale) */
+  /* ── Typography ─────────────────────────────────────────── */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  --text-xs:   clamp(0.75rem,  0.02vw + 0.74rem, 0.8rem);
+  --text-sm:   clamp(0.875rem, 0.08vw + 0.86rem, 0.95rem);
+  --text-base: clamp(1rem,     0.2vw  + 0.96rem, 1.125rem);
+  --text-lg:   clamp(1.125rem, 0.4vw  + 1.04rem, 1.35rem);
+  --text-xl:   clamp(1.25rem,  0.8vw  + 1.09rem, 1.75rem);
+  --text-2xl:  clamp(1.5rem,   1.5vw  + 1.2rem,  2.4rem);
+  --text-3xl:  clamp(1.75rem,  2.5vw  + 1.25rem, 3rem);
+  --text-hero: clamp(2.5rem,   5vw    + 1.3rem,  4.5rem);
+
+  /* ── Spacing ─────────────────────────────────────────────── */
   --space-1:   4px;
   --space-2:   8px;
   --space-3:   12px;
@@ -50,32 +58,34 @@
   --space-24:  96px;
   --space-32:  128px;
 
-  /* Border Radius */
+  /* ── Border Radius ──────────────────────────────────────── */
   --radius-sm:   6px;
   --radius-md:   12px;
   --radius-lg:   20px;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm:         0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
-  --shadow-md:         0 4px 20px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);
-  --shadow-lg:         0 20px 60px rgba(0,0,0,0.5), 0 8px 24px rgba(0,0,0,0.3);
-  --shadow-glow-accent: 0 0 40px rgba(79, 142, 247, 0.2);
-  --shadow-glow-green:  0 0 40px rgba(34, 211, 160, 0.15);
+  /* ── Shadows (light theme) ──────────────────────────────── */
+  --shadow-sm:          0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:          0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-lg:          0 16px 48px rgba(0,0,0,0.1),  0 6px 20px rgba(0,0,0,0.05);
+  --shadow-glow-accent: 0 0 30px rgba(8, 145, 178, 0.18);
+  --shadow-glow-green:  0 0 30px rgba(13, 148, 136, 0.15);
 
-  /* Motion */
+  /* ── Motion (matches Iceberg easing) ───────────────────── */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
   --duration-fast: 150ms;
-  --duration-base: 250ms;
-  --duration-slow: 400ms;
+  --duration-base: 300ms;
+  --duration-slow: 600ms;
 
-  /* Layout */
-  --container-max: 1200px;
-  --header-height: 72px;
+  /* ── Layout ─────────────────────────────────────────────── */
+  --content-width:  42rem;
+  --wide-width:     64rem;
+  --container-max:  80rem;
+  --header-height:  68px;
 }
 
-/* ── Reset ────────────────────────────────────────────────── */
+/* ── Reset ─────────────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -98,7 +108,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Typography ───────────────────────────────────────────── */
+/* ── Typography ─────────────────────────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -116,23 +126,18 @@ a {
   transition: color var(--duration-fast) var(--ease-in-out);
 }
 
-a:hover {
-  color: var(--color-accent-hover);
-}
+a:hover { color: var(--color-accent-hover); }
 
-img, video {
-  max-width: 100%;
-  display: block;
-}
+img, video { max-width: 100%; display: block; }
 
-/* ── Focus Styles ─────────────────────────────────────────── */
+/* ── Focus ──────────────────────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
 
-/* ── Skip Link ────────────────────────────────────────────── */
+/* ── Skip Link ──────────────────────────────────────────────── */
 .skip-link {
   position: absolute;
   top: -100%;
@@ -145,34 +150,33 @@ img, video {
   z-index: 9999;
   transition: top var(--duration-fast);
 }
-.skip-link:focus {
-  top: var(--space-4);
-}
+.skip-link:focus { top: var(--space-4); }
 
-/* ── Container ────────────────────────────────────────────── */
+/* ── Container ──────────────────────────────────────────────── */
 .container {
   max-width: var(--container-max);
   margin-inline: auto;
   padding-inline: var(--space-6);
 }
 
-/* ── Buttons ──────────────────────────────────────────────── */
+/* ── Buttons ────────────────────────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: 12px 28px;
-  border-radius: var(--radius-full);
+  padding: 11px 26px;
+  border-radius: 6px;           /* Iceberg uses 5-6px, not pill */
   font-family: var(--font-sans);
   font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   cursor: pointer;
   border: none;
   transition:
     transform var(--duration-base) var(--ease-out-expo),
     box-shadow var(--duration-base) var(--ease-out-expo),
-    background var(--duration-fast) var(--ease-in-out);
+    background var(--duration-fast) var(--ease-in-out),
+    color var(--duration-fast) var(--ease-in-out);
   text-decoration: none;
   white-space: nowrap;
 }
@@ -184,77 +188,61 @@ img, video {
 .btn-primary:hover {
   background: var(--color-accent-hover);
   color: #fff;
-  transform: scale(1.03);
+  transform: translateY(-1px);
   box-shadow: var(--shadow-glow-accent);
 }
 
 .btn-ghost {
   background: transparent;
-  color: var(--color-text-secondary);
+  color: var(--color-accent);
   border: 1px solid var(--color-border-strong);
 }
 .btn-ghost:hover {
-  color: var(--color-text-primary);
-  border-color: var(--color-border-strong);
-  background: rgba(255,255,255,0.05);
-  transform: scale(1.02);
+  background: var(--color-accent-dim);
+  color: var(--color-accent-hover);
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
 }
 
-/* ── Glass Card ───────────────────────────────────────────── */
+/* ── Card (Iceberg card style) ──────────────────────────────── */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--duration-base) var(--ease-in-out),
+              transform   var(--duration-base) var(--ease-out-expo);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* ── Glass Card (Iceberg label-content style) ───────────────── */
 .glass-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(8, 145, 178, 0.15);
   border-radius: var(--radius-md);
-  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
 }
 
-.glass-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: conic-gradient(
-    from 45deg,
-    rgba(255,255,255,0.12) 0deg,
-    rgba(255,255,255,0.03) 90deg,
-    rgba(255,255,255,0.12) 180deg,
-    rgba(255,255,255,0.03) 270deg,
-    rgba(255,255,255,0.12) 360deg
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: destination-out;
-  pointer-events: none;
-}
-
-/* ── Section Spacing ──────────────────────────────────────── */
-.section {
-  padding-block: var(--space-24);
-}
-
-.section-sm {
-  padding-block: var(--space-16);
-}
-
-/* ── Section Labels ───────────────────────────────────────── */
+/* ── Section Label (small uppercase, cyan) ──────────────────── */
 .section-label {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
   font-size: var(--text-xs);
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-accent);
-  margin-bottom: var(--space-4);
 }
 
-/* ── Grid helpers ─────────────────────────────────────────── */
+/* ── Grid helpers ───────────────────────────────────────────── */
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -267,7 +255,11 @@ img, video {
   gap: var(--space-6);
 }
 
-/* ── Reduced Motion ───────────────────────────────────────── */
+/* ── Section spacing ────────────────────────────────────────── */
+.section    { padding-block: var(--space-24); }
+.section-sm { padding-block: var(--space-16); }
+
+/* ── Reduced Motion ─────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
