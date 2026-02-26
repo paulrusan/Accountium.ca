@@ -27,7 +27,7 @@ const footerLinks = {
       <!-- Brand -->
       <div class="footer-brand">
         <a href="/" class="logo" aria-label="Accountium home">
-          <span class="logo-mark" aria-hidden="true">⬡</span>
+          <img src="/images/logo.png" alt="" class="logo-mark" />
           <span class="logo-text">{site.name}</span>
         </a>
         <p class="footer-tagline">{site.tagline}</p>
@@ -49,14 +49,6 @@ const footerLinks = {
 
     <div class="footer-bottom">
       <p class="copyright">© {year} {site.name}. All rights reserved.</p>
-      <a
-        href="https://albertbozesan.com/vibecoding-websites"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="attribution"
-      >
-        Built with Albert Bozesan's Website Guide
-      </a>
     </div>
   </div>
 </footer>
@@ -85,8 +77,8 @@ const footerLinks = {
   }
 
   .logo-mark {
-    font-size: 1.3rem;
-    color: var(--color-accent);
+    height: 1.3rem;
+    width: auto;
   }
 
   .logo-text {

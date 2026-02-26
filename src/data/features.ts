@@ -10,8 +10,7 @@ export const features: Feature[] = [
     icon: '◈',
     title: 'Invoicing',
     description:
-      'Create and send professional invoices in minutes. Integrated with Stripe so your clients can pay online instantly — no manual follow-ups needed.',
-    tag: 'Stripe',
+      'Create and send professional invoices in minutes. Your clients can pay online instantly — no manual follow-ups needed.',
   },
   {
     icon: '⬡',
@@ -39,9 +38,15 @@ export const features: Feature[] = [
   },
   {
     icon: '✦',
-    title: 'Small Business Accounting',
+    title: 'Full Cycle Accounting',
     description:
       'A comprehensive accounting suite built around the unique needs of small businesses — organized, accessible, and always up to date.',
+  },
+  {
+    icon: '◇',
+    title: 'Project Management',
+    description:
+      'Run any project simply and smartly with tools that keep every team on track.',
   },
 ];
 

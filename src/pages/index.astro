@@ -4,23 +4,6 @@ import TestimonialCard from '../components/TestimonialCard.astro';
 import { testimonials } from '../data/testimonials';
 import { site } from '../data/site';
 
-const pillars = [
-  {
-    icon: '⊞',
-    title: 'Excellent Operation',
-    desc: 'Our comprehensive accounting software is a fully integrated suite of applications designed to streamline accounting, payroll, and inventory management. Accountium offers businesses greater data visibility and enhanced operational control.',
-  },
-  {
-    icon: '◈',
-    title: 'Flawless Design',
-    desc: "Accountium leads the industry with an elegant design and functionality. Work more effectively by getting a complete, real-time view of your business's financial performance.",
-  },
-  {
-    icon: '✦',
-    title: 'AI Tools',
-    desc: 'With industry-leading tools, Accountium is the first choice for managing your business. Save time and free up resources to better serve customers, identify new opportunities and outpace the competition.',
-  },
-];
 
 const features = [
   {
@@ -30,6 +13,7 @@ const features = [
     desc: "Experience the future of Accounting Software with our revolutionary world's first artificial intelligence system. With the ability to control the system with simple commands from your email, managing your finances has never been easier.",
     href: '/features',
     color: 'var(--color-accent)',
+    image: '/images/Ai-Accounting--wrldfirst.svg',
   },
   {
     num: '02',
@@ -38,6 +22,7 @@ const features = [
     desc: 'Send professional invoices to clients and start accepting online payments. Automatically record transactions in your books.',
     href: '/features',
     color: 'var(--color-green)',
+    image: '/images/Streamline%20Sales.svg',
   },
   {
     num: '03',
@@ -46,6 +31,7 @@ const features = [
     desc: 'Connect your bank to Accountium and set up bank feeds. Transactions flow securely straight into Accountium each business day. Monitor transactions and categorize them instantly.',
     href: '/features',
     color: 'var(--color-accent)',
+    image: '/images/smart%20banking.svg',
   },
   {
     num: '04',
@@ -53,7 +39,8 @@ const features = [
     sub: 'Access anywhere, on any device',
     desc: 'Keep an eye on your finances anywhere anytime on your mobile. Track bank balances, invoices, bills and more. Your data is synced across all devices all the time.',
     href: '/features',
-    color: 'var(--color-amber)',
+    color: 'var(--color-accent)',
+    image: '/images/Business%20On%E2%80%91the%E2%80%91go.svg',
   },
   {
     num: '05',
@@ -62,6 +49,7 @@ const features = [
     desc: 'Our Payroll application is feature-rich and meets all of your payroll processing needs, while processing your payroll efficiently and accurately every time.',
     href: '/features',
     color: 'var(--color-green)',
+    image: '/images/payroll%20pay.svg',
   },
 ];
 ---
@@ -74,26 +62,15 @@ const features = [
   <section class="hero" aria-label="Hero">
     <canvas id="particle-canvas" aria-hidden="true"></canvas>
     <div class="hero-inner">
-      <p class="hero-eyebrow section-label">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
-          <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="6" cy="6" r="2"/>
-        </svg>
-        AI Accounting Software
-      </p>
+      <p class="hero-eyebrow">ACCOUNTIUM</p>
       <h1 class="hero-headline">
-        Numbers Made Easy.<br />Business Made Brilliant.
+        Numbers Made Easy<br />Business Run Brilliant
       </h1>
-      <p class="hero-sub">
-        A fully integrated suite designed to streamline accounting,
-        payroll, and inventory management — giving your business
-        greater data visibility and enhanced operational control.
-      </p>
+
       <div class="hero-actions">
-        <a href={site.appUrl} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-          Try for free
+        <a href={site.appUrl} class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+          TRY NOW
         </a>
-        <a href="/features" class="btn btn-ghost">Explore features</a>
       </div>
     </div>
 
@@ -120,24 +97,9 @@ const features = [
   <!-- ════════════════════════════════════════════════════════
        PILLARS
   ════════════════════════════════════════════════════════ -->
-  <section class="pillars-section" aria-labelledby="pillars-heading">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 id="pillars-heading">
-          Cloud accounting software built for<br />
-          Business, Accountants and Bookkeepers.
-        </h2>
-      </div>
-      <div class="pillars-grid">
-        {pillars.map((p, i) => (
-          <div class="pillar-card glass-card reveal" style={`--delay:${i * 100}ms`}>
-            <span class="pillar-icon" aria-hidden="true">{p.icon}</span>
-            <h3>{p.title}</h3>
-            <p>{p.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
+  <section class="b4s2" aria-labelledby="pillars-heading">
+    <h2 id="pillars-heading">Numbers Simplified Decisions Amplified</h2>
+    <p>Accountium leads the industry with an elegant design and functionality. Work more effectively by getting a complete, real-time view of your business's financial performance.</p>
   </section>
 
   <!-- ════════════════════════════════════════════════════════
@@ -166,23 +128,17 @@ const features = [
             <h2 class="feature-title">{f.title}</h2>
             <p class="feature-sub">{f.sub}</p>
             <p class="feature-desc">{f.desc}</p>
-            <a href={f.href} class="btn btn-ghost feature-cta">
-              Explore now
+            <a href="https://www.myaccountium.ca/Account/SignIn" class="btn btn-ghost feature-cta" target="_blank" rel="noopener noreferrer">
+              Try Now
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
           </div>
           <!-- Visual placeholder -->
-          <div class="feature-visual" aria-hidden="true">
-            <div class="feature-visual-inner glass-card">
-              <div class="visual-dot-grid">
-                {Array.from({ length: 12 }).map(() => (
-                  <div class="visual-dot" style={`background:${f.color}`}></div>
-                ))}
-              </div>
-              <p class="visual-label" style={`color:${f.color}`}>{f.title}</p>
-            </div>
+          <div class:list={['feature-visual', { 'feature-visual--particle': i === 0 }]} aria-hidden="true">
+            {i === 0 && <canvas class="feature-particle-canvas"></canvas>}
+            {f.image && <img src={f.image} alt="" style={`width:100%;height:auto;border-radius:8px;${i === 0 ? 'position:relative;z-index:1;' : ''}`} />}
           </div>
         </div>
       ))}
@@ -208,7 +164,7 @@ const features = [
   <section class="testimonials-section" aria-labelledby="testimonials-heading">
     <div class="container">
       <div class="section-header reveal">
-        <h2 id="testimonials-heading">Trusted by businesses<br />across Canada.</h2>
+        <h2 id="testimonials-heading">Your Accountant on Autopilot</h2>
       </div>
       <div class="testimonials-grid">
         {testimonials.map((t, i) => (
@@ -248,7 +204,6 @@ const features = [
         <a href={site.appUrl} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
           Try for free
         </a>
-        <a href="/contact" class="btn btn-ghost">Contact us</a>
       </div>
     </div>
   </section>
@@ -261,7 +216,8 @@ const features = [
   const canvas = document.getElementById('particle-canvas') as HTMLCanvasElement;
   if (!canvas) return;
   const ctx = canvas.getContext('2d')!;
-  const COLOR = '220, 80, 80';
+  const DOT_COLOR = '255, 0, 0';
+  const LINE_COLOR = '0, 0, 255';
   const DIST  = 150;
   const N     = window.innerWidth < 768 ? 28 : 55;
 
@@ -291,7 +247,7 @@ const features = [
       if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${COLOR},0.7)`;
+      ctx.fillStyle = `rgb(${DOT_COLOR})`;
       ctx.fill();
       for (let j = i + 1; j < pts.length; j++) {
         const q = pts[j];
@@ -300,7 +256,7 @@ const features = [
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = `rgba(${COLOR},${(1 - d / DIST) * 0.22})`;
+          ctx.strokeStyle = `rgba(${LINE_COLOR},${(1 - d / DIST) * 0.80})`;
           ctx.lineWidth = 0.8;
           ctx.stroke();
         }
@@ -340,6 +296,46 @@ const features = [
 </script>
 
 <style>
+  /* ── b4s2: Chapter Divider (Iceberg style) ─────────────── */
+  .b4s2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-6);
+    padding: var(--space-12) var(--space-8);
+    position: relative;
+    background: radial-gradient(ellipse at 50% 80%, rgba(8, 145, 178, 0.06) 0%, transparent 50%);
+  }
+
+  .b4s2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: var(--space-16);
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+  }
+
+  .b4s2 h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .b4s2 p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 58ch;
+    margin: 0;
+  }
+
   /* ── Hero ─────────────────────────────────────────────── */
   .hero {
     position: relative;
@@ -382,24 +378,26 @@ const features = [
   }
 
   .hero-eyebrow {
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #1a2e3a;
     margin: 0;
     max-width: none;
   }
 
   .hero-headline {
-    font-size: var(--text-hero);
+    font-size: 2rem;
     font-weight: 700;
     letter-spacing: -0.035em;
     line-height: 1.08;
-    background: linear-gradient(135deg, #1a2e3a 0%, #0891b2 55%, #0369a1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #1a2e3a;
   }
 
   .hero-sub {
     font-size: var(--text-lg);
-    color: var(--color-text-secondary);
+    color: #1a2e3a;
     line-height: 1.7;
     max-width: 52ch;
     margin: 0;
@@ -434,6 +432,12 @@ const features = [
     padding-bottom: var(--space-8);
   }
 
+  .chapter-divider .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .chapter-drip {
     width: 1px;
     height: 56px;
@@ -444,6 +448,7 @@ const features = [
   .chapter-label-row {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: var(--space-3);
   }
 
@@ -476,57 +481,12 @@ const features = [
   }
 
   .section-header h2 {
-    font-size: var(--text-3xl);
+    font-size: 18px;
     font-weight: 700;
     letter-spacing: -0.03em;
     line-height: 1.15;
   }
 
-  /* ── Pillars ──────────────────────────────────────────── */
-  .pillars-section {
-    padding-bottom: var(--space-12);
-    background:
-      radial-gradient(ellipse 70% 60% at 50% 100%, rgba(8, 145, 178, 0.06) 0%, transparent 70%),
-      var(--color-bg-secondary);
-    padding-top: var(--space-4);
-  }
-
-  .pillars-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-6);
-  }
-
-  .pillar-card {
-    padding: var(--space-8);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    transition: transform var(--duration-base) var(--ease-out-expo);
-  }
-
-  .pillar-card:hover { transform: translateY(-4px); }
-
-  .pillar-icon {
-    font-size: 1.5rem;
-    color: var(--color-accent);
-    line-height: 1;
-    margin-bottom: var(--space-2);
-  }
-
-  .pillar-card h3 {
-    font-size: var(--text-xl);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-  }
-
-  .pillar-card p {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-    line-height: 1.65;
-    max-width: none;
-    margin: 0;
-  }
 
   /* ── Features ─────────────────────────────────────────── */
   .features-section {
@@ -603,6 +563,22 @@ const features = [
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  /* Particle animation container for first feature visual */
+  .feature-visual--particle {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    min-height: 300px;
+  }
+
+  .feature-particle-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
   }
 
   .feature-visual-inner {
@@ -707,8 +683,7 @@ const features = [
 
   /* ── Responsive ───────────────────────────────────────── */
   @media (max-width: 900px) {
-    .pillars-grid      { grid-template-columns: 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr; }
+.testimonials-grid { grid-template-columns: 1fr; }
     .feature-row       { grid-template-columns: 1fr; gap: var(--space-8); }
     .feature-row--flip .feature-text  { order: 0; }
     .feature-row--flip .feature-visual { order: 0; }
@@ -716,10 +691,66 @@ const features = [
     .feature-visual-inner { max-width: 100%; }
   }
 
+  @media (max-width: 768px) {
+    /* Hero */
+    .hero-eyebrow {
+      font-size: 2rem;
+    }
+    .hero-headline {
+      font-size: 1.5rem;
+    }
+    .hero-sub {
+      font-size: var(--text-base);
+    }
+    /* Section header */
+    .section-header h2 {
+      font-size: 1.5rem;
+    }
+    /* Features */
+    .feature-row {
+      padding: 0 var(--space-4);
+    }
+    .feature-title {
+      font-size: 1.5rem;
+    }
+    /* Bottom CTA */
+    .bottom-cta-inner h2 {
+      font-size: 1.75rem;
+    }
+  }
+
   @media (max-width: 600px) {
+    /* Hero */
+    .hero-eyebrow {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-2);
+    }
+    .hero-headline {
+      font-size: 1.25rem;
+      line-height: 1.2;
+    }
+    /* Features */
+    .feature-num {
+      font-size: 3rem;
+    }
+    .feature-title {
+      font-size: 1.25rem;
+    }
+    .feature-visual {
+      margin-top: var(--space-4);
+    }
+    /* Testimonials */
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+    /* Bottom CTA */
+    .bottom-cta-inner h2 {
+      font-size: 1.5rem;
+    }
+    .cta-actions { flex-direction: column; align-items: stretch; }
+    .cta-actions .btn { justify-content: center; }
     .hero-actions { flex-direction: column; align-items: stretch; }
     .hero-actions .btn { justify-content: center; }
-    .cta-actions  { flex-direction: column; align-items: stretch; }
-    .cta-actions .btn { justify-content: center; }
   }
+
 </style>

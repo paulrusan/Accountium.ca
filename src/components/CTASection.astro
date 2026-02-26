@@ -6,15 +6,17 @@ interface Props {
   ctaHref?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
+  secondaryTarget?: string;
 }
 
 const {
   headline      = 'Ready to close the books in minutes?',
   subline       = 'Join 2,400+ finance teams who run on Accountium. Start your free 14-day trial — no credit card required.',
-  ctaLabel      = 'Start free trial',
+  ctaLabel,
   ctaHref       = '/contact',
   secondaryLabel = 'Talk to sales',
   secondaryHref  = '/contact',
+  secondaryTarget,
 } = Astro.props;
 ---
 
@@ -28,8 +30,8 @@ const {
         <h2 class="cta-headline">{headline}</h2>
         <p class="cta-subline">{subline}</p>
         <div class="cta-actions">
-          <a href={ctaHref} class="btn btn-primary">{ctaLabel}</a>
-          <a href={secondaryHref} class="btn btn-ghost">{secondaryLabel}</a>
+          {ctaLabel && <a href={ctaHref} class="btn btn-primary">{ctaLabel}</a>}
+          {secondaryLabel && <a href={secondaryHref} class="btn btn-ghost" target={secondaryTarget} rel={secondaryTarget === '_blank' ? 'noopener noreferrer' : undefined}>{secondaryLabel}</a>}
         </div>
       </div>
     </div>

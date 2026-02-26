@@ -149,6 +149,51 @@ Base unit: `4px`
 
 ---
 
+## Named Styles
+
+Named styles are saved shorthand references for reuse across pages.
+
+### bt1 — Ghost Button (`btn btn-ghost`)
+
+```html
+<a href="…" class="btn btn-ghost">Label</a>
+```
+
+```css
+/* Base (.btn) */
+display: inline-flex;
+align-items: center;
+gap: var(--space-2);          /* 8px */
+padding: 11px 26px;
+border-radius: 6px;
+font-family: var(--font-sans);
+font-size: 0.9rem;
+font-weight: 600;
+letter-spacing: 0.01em;
+cursor: pointer;
+border: none;
+text-decoration: none;
+white-space: nowrap;
+transition:
+  transform var(--duration-base) var(--ease-out-expo),
+  box-shadow var(--duration-base) var(--ease-out-expo),
+  background var(--duration-fast) var(--ease-in-out),
+  color var(--duration-fast) var(--ease-in-out);
+
+/* Ghost modifier (.btn-ghost) */
+background: transparent;
+color: var(--color-accent);
+border: 1px solid var(--color-border-strong);   /* rgba(8,145,178,0.3) */
+
+/* Hover */
+background: var(--color-accent-dim);            /* rgba(8,145,178,0.08) */
+color: var(--color-accent-hover);               /* #0369a1 */
+border-color: var(--color-accent);
+transform: translateY(-1px);
+```
+
+---
+
 ## Accessibility
 
 - All interactive elements have visible `:focus-visible` styles

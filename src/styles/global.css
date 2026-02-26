@@ -137,21 +137,6 @@ img, video { max-width: 100%; display: block; }
   border-radius: var(--radius-sm);
 }
 
-/* ── Skip Link ──────────────────────────────────────────────── */
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: var(--space-4);
-  padding: var(--space-2) var(--space-4);
-  background: var(--color-accent);
-  color: #fff;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  z-index: 9999;
-  transition: top var(--duration-fast);
-}
-.skip-link:focus { top: var(--space-4); }
-
 /* ── Container ──────────────────────────────────────────────── */
 .container {
   max-width: var(--container-max);
